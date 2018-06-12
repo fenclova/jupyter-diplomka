@@ -141,7 +141,7 @@
     \def\gt{>}
     \def\lt{<}
     % Document parameters
-    \title{Testing\_Jupyter}
+    \title{0\_predvyber\_cela\_republika}
     
     
     
@@ -280,354 +280,380 @@
     
 
     
-    \section{Testing Jupyter}\label{testing-jupyter}
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{c+c1}{\PYZsh{} \PYZhy{}*\PYZhy{} coding: utf\PYZhy{}8 \PYZhy{}*\PYZhy{}}
+        \PY{k+kn}{from} \PY{n+nn}{\PYZus{}\PYZus{}future\PYZus{}\PYZus{}} \PY{k+kn}{import} \PY{n}{unicode\PYZus{}literals}
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k+kn}{as} \PY{n+nn}{pd}
+\end{Verbatim}
 
-Normální text, cell \textgreater{} cell type \textgreater{} markdowns
-\#\# Nadpis 2 1. seznam 2. seznam 3. seznam
+
+    \subsubsection{5170 variant \textgreater{} řádovost
+toků}\label{variant-ux159uxe1dovost-tokux16f}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}23}]:} \PY{n}{name} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{karolina}\PY{l+s+s2}{\PYZdq{}}
+{\color{incolor}In [{\color{incolor}4}]:} \PY{c+c1}{\PYZsh{} UTM 33 AND within Cesko AND intersect zeleznice}
+        \PY{c+c1}{\PYZsh{} predvyber = zeleznice 3\PYZhy{}10 km, zastavba 0.2 \PYZhy{} 2 km2, relief \PYZlt{} 62500 m2}
+        
+        \PY{n}{radovost\PYZus{}toku} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{C:}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{fenclova}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{diplomka}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{analyza}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{vysledky}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{0\PYZus{}radovost\PYZus{}toku.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{set\PYZus{}index}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ID}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{}......}
+        \PY{c+c1}{\PYZsh{} Jiýž aplikována PODMÍNKA: délka železnice}
+        \PY{n}{zeleznice\PYZus{}delka\PYZus{}min} \PY{o}{=} \PY{l+m+mi}{3000}
+        \PY{n}{zeleznice\PYZus{}delka\PYZus{}max} \PY{o}{=} \PY{l+m+mi}{10000}
+        
+        \PY{c+c1}{\PYZsh{} PODMÍNKA: výskyt zástavby}
+        \PY{n}{zastavba\PYZus{}rozloha\PYZus{}min} \PY{o}{=} \PY{l+m+mf}{0.2}\PY{o}{*}\PY{l+m+mi}{1000}\PY{o}{*}\PY{l+m+mi}{1000} \PY{c+c1}{\PYZsh{}0,2 km2 ve skutečnosti (velmi řídké osídlení)}
+        \PY{n}{zastavba\PYZus{}rozloha\PYZus{}max} \PY{o}{=} \PY{l+m+mi}{2}\PY{o}{*}\PY{l+m+mi}{1000}\PY{o}{*}\PY{l+m+mi}{1000}   \PY{c+c1}{\PYZsh{}2km2 ve skutečnosti (1/8 území) 2cm2 v mapě 1 : 50 000 2*(2*500)**2}
+        
+        \PY{c+c1}{\PYZsh{} PODMÍNKA: maximalni povolena rozloha skal a povrchové těžby}
+        \PY{n}{relief\PYZus{}rozloha\PYZus{}max} \PY{o}{=} \PY{l+m+mi}{1}\PY{o}{*}\PY{l+m+mi}{250}\PY{o}{*}\PY{l+m+mi}{250} \PY{c+c1}{\PYZsh{} 1cm2 v mapě 1 : 25 000}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}24}]:} \PY{n}{name}
-\end{Verbatim}
-
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}24}]:} 'karolina'
-\end{Verbatim}
-            
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}27}]:} \PY{o}{!}pip list
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-alabaster (0.7.10)
-anaconda-client (1.6.9)
-anaconda-navigator (1.7.0)
-anaconda-project (0.8.2)
-asn1crypto (0.24.0)
-astroid (1.6.1)
-astropy (2.0.3)
-attrs (17.4.0)
-Babel (2.5.3)
-backports-abc (0.5)
-backports.functools-lru-cache (1.4)
-backports.shutil-get-terminal-size (1.0.0)
-backports.shutil-which (3.5.1)
-backports.ssl-match-hostname (3.5.0.1)
-beautifulsoup4 (4.6.0)
-bitarray (0.8.1)
-bkcharts (0.2)
-blaze (0.11.3)
-bleach (2.1.2)
-bokeh (0.12.13)
-boto (2.48.0)
-Bottleneck (1.2.1)
-cdecimal (2.3)
-certifi (2018.1.18)
-cffi (1.11.4)
-chardet (3.0.4)
-click (6.7)
-cloudpickle (0.5.2)
-clyent (1.2.2)
-colorama (0.3.9)
-comtypes (1.1.4)
-conda (4.4.10)
-conda-build (3.4.1)
-conda-verify (2.0.0)
-configparser (3.5.0)
-contextlib2 (0.5.5)
-cryptography (2.1.4)
-cycler (0.10.0)
-Cython (0.27.3)
-cytoolz (0.9.0)
-dask (0.16.1)
-datashape (0.5.4)
-decorator (4.2.1)
-distributed (1.20.2)
-docutils (0.14)
-entrypoints (0.2.3)
-enum34 (1.1.6)
-et-xmlfile (1.0.1)
-fastcache (1.0.2)
-filelock (2.0.13)
-Flask (0.12.2)
-Flask-Cors (3.0.3)
-funcsigs (1.0.2)
-functools32 (3.2.3.post2)
-futures (3.2.0)
-gevent (1.2.2)
-glob2 (0.6)
-greenlet (0.4.12)
-grin (1.2.1)
-h5py (2.7.1)
-heapdict (1.0.0)
-html5lib (1.0.1)
-idna (2.6)
-imageio (2.2.0)
-imagesize (0.7.1)
-ipaddress (1.0.19)
-ipython (5.4.1)
-ipython-genutils (0.2.0)
-ipywidgets (7.1.1)
-isort (4.2.15)
-itsdangerous (0.24)
-jdcal (1.3)
-jedi (0.11.1)
-Jinja2 (2.10)
-jsonschema (2.6.0)
-jupyter (1.0.0)
-jupyter-client (5.2.2)
-jupyter-console (5.2.0)
-jupyter-core (4.4.0)
-jupyterlab (0.31.4)
-jupyterlab-launcher (0.10.2)
-lazy-object-proxy (1.3.1)
-llvmlite (0.21.0)
-locket (0.2.0)
-lxml (4.1.1)
-MarkupSafe (1.0)
-matplotlib (2.1.2)
-mccabe (0.6.1)
-menuinst (1.4.11)
-mistune (0.8.3)
-mpmath (1.0.0)
-msgpack-python (0.5.1)
-multipledispatch (0.4.9)
-navigator-updater (0.1.0)
-nbconvert (5.3.1)
-nbformat (4.4.0)
-networkx (2.1)
-nltk (3.2.5)
-nose (1.3.7)
-notebook (5.4.0)
-numba (0.36.2+0.g540650d.dirty)
-numexpr (2.6.4)
-numpy (1.14.0)
-numpydoc (0.7.0)
-odo (0.5.1)
-olefile (0.45.1)
-openpyxl (2.4.10)
-packaging (16.8)
-pandas (0.22.0)
-pandocfilters (1.4.2)
-parso (0.1.1)
-partd (0.3.8)
-path.py (10.5)
-pathlib2 (2.3.0)
-patsy (0.5.0)
-pep8 (1.7.1)
-pickleshare (0.7.4)
-Pillow (5.0.0)
-pip (9.0.1)
-pkginfo (1.4.1)
-pluggy (0.6.0)
-ply (3.10)
-prompt-toolkit (1.0.15)
-psutil (5.4.3)
-py (1.5.2)
-pycodestyle (2.3.1)
-pycosat (0.6.3)
-pycparser (2.18)
-pycrypto (2.6.1)
-pycurl (7.43.0.1)
-pyflakes (1.6.0)
-Pygments (2.2.0)
-pylint (1.8.2)
-pyodbc (4.0.22)
-pyOpenSSL (17.5.0)
-pyparsing (2.2.0)
-PySocks (1.6.7)
-pytest (3.3.2)
-python-dateutil (2.6.1)
-pytz (2017.3)
-PyWavelets (0.5.2)
-pywin32 (222)
-pywinpty (0.5)
-PyYAML (3.12)
-pyzmq (16.0.3)
-QtAwesome (0.4.4)
-qtconsole (4.3.1)
-QtPy (1.3.1)
-requests (2.18.4)
-rope (0.10.7)
-ruamel-yaml (0.15.35)
-scandir (1.6)
-scikit-image (0.13.1)
-scikit-learn (0.19.1)
-scipy (1.0.0)
-seaborn (0.8.1)
-Send2Trash (1.4.2)
-setuptools (38.4.0)
-simplegeneric (0.8.1)
-singledispatch (3.4.0.3)
-six (1.11.0)
-snowballstemmer (1.2.1)
-sortedcollections (0.5.3)
-sortedcontainers (1.5.9)
-Sphinx (1.6.6)
-sphinxcontrib-websupport (1.0.1)
-spyder (3.2.6)
-SQLAlchemy (1.2.1)
-statsmodels (0.8.0)
-subprocess32 (3.2.7)
-sympy (1.1.1)
-tables (3.4.2)
-tblib (1.3.2)
-terminado (0.8.1)
-testpath (0.3.1)
-toolz (0.9.0)
-tornado (4.5.3)
-traitlets (4.3.2)
-typing (3.6.2)
-unicodecsv (0.14.1)
-urllib3 (1.22)
-wcwidth (0.1.7)
-webencodings (0.5.1)
-Werkzeug (0.14.1)
-wheel (0.30.0)
-widgetsnbextension (3.1.0)
-win-inet-pton (1.0.1)
-win-unicode-console (0.5)
-wincertstore (0.2)
-wrapt (1.10.11)
-xlrd (1.1.0)
-XlsxWriter (1.0.2)
-xlwings (0.11.5)
-xlwt (1.3.0)
-zict (0.1.3)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-DEPRECATION: The default format will switch to columns in the future. You can use --format=(legacy|columns) (or define a format=(legacy|columns) in your pip.conf under the [list] section) to disable this warning.
-You are using pip version 9.0.1, however version 10.0.1 is available.
-You should consider upgrading via the 'python -m pip install --upgrade pip' command.
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}28}]:} \PY{c+c1}{\PYZsh{} Magics}
-         \PY{c+c1}{\PYZsh{} \PYZpc{} arguments from the same line}
-         \PY{c+c1}{\PYZsh{} \PYZpc{}\PYZpc{} cell magics = entire cell as an argument}
-         \PY{o}{\PYZpc{}}\PY{k}{lsmagic}
+{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{radovost\PYZus{}toku}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}28}]:} Available line magics:
-         \%alias  \%alias\_magic  \%autocall  \%automagic  \%autosave  \%bookmark  \%cd  \%clear  \%cls  \%colors  \%config  \%connect\_info  \%copy  \%ddir  \%debug  \%dhist  \%dirs  \%doctest\_mode  \%echo  \%ed  \%edit  \%env  \%gui  \%hist  \%history  \%killbgscripts  \%ldir  \%less  \%load  \%load\_ext  \%loadpy  \%logoff  \%logon  \%logstart  \%logstate  \%logstop  \%ls  \%lsmagic  \%macro  \%magic  \%matplotlib  \%mkdir  \%more  \%notebook  \%page  \%pastebin  \%pdb  \%pdef  \%pdoc  \%pfile  \%pinfo  \%pinfo2  \%popd  \%pprint  \%precision  \%profile  \%prun  \%psearch  \%psource  \%pushd  \%pwd  \%pycat  \%pylab  \%qtconsole  \%quickref  \%recall  \%rehashx  \%reload\_ext  \%ren  \%rep  \%rerun  \%reset  \%reset\_selective  \%rmdir  \%run  \%save  \%sc  \%set\_env  \%store  \%sx  \%system  \%tb  \%time  \%timeit  \%unalias  \%unload\_ext  \%who  \%who\_ls  \%whos  \%xdel  \%xmode
-         
-         Available cell magics:
-         \%\%!  \%\%HTML  \%\%SVG  \%\%bash  \%\%capture  \%\%cmd  \%\%debug  \%\%file  \%\%html  \%\%javascript  \%\%js  \%\%latex  \%\%perl  \%\%prun  \%\%pypy  \%\%python  \%\%python2  \%\%python3  \%\%ruby  \%\%script  \%\%sh  \%\%svg  \%\%sx  \%\%system  \%\%time  \%\%timeit  \%\%writefile
-         
-         Automagic is ON, \% prefix IS NOT needed for line magics.
+{\color{outcolor}Out[{\color{outcolor}5}]:}        celkova\_delka            r0           r1            r2            r3  \textbackslash{}
+        count    5170.000000   5170.000000  5170.000000   5170.000000   5170.000000   
+        mean    14234.115431    133.259712   105.565304   1022.268275   2571.314528   
+        std      6495.024388    983.893570   663.619719   2163.404889   3246.395031   
+        min         0.000000      0.000000     0.000000      0.000000      0.000000   
+        25\%     10056.977500      0.000000     0.000000      0.000000      0.000000   
+        50\%     14129.530000      0.000000     0.000000      0.000000    837.425000   
+        75\%     18119.897500      0.000000     0.000000      0.000000   4764.980000   
+        max     45726.580000  29096.850000  7924.080000  14739.340000  19692.960000   
+        
+                         r4            r5            r6            r7            r8  \textbackslash{}
+        count   5170.000000   5170.000000   5170.000000   5170.000000   5170.000000   
+        mean    3699.633373   3139.217617   1960.419077   1028.011431    437.430315   
+        std     3520.023317   3363.779035   2771.148656   2151.618333   1320.874156   
+        min        0.000000      0.000000      0.000000      0.000000      0.000000   
+        25\%        0.000000      0.000000      0.000000      0.000000      0.000000   
+        50\%     3321.175000   2160.280000    600.420000      0.000000      0.000000   
+        75\%     6105.757500   5250.990000   3286.627500    810.310000      0.000000   
+        max    19646.560000  18356.480000  16117.320000  14667.370000  10971.760000   
+        
+                         r9          r10  
+        count   5170.000000  5170.000000  
+        mean     116.866551    20.129379  
+        std      627.458820   243.929527  
+        min        0.000000     0.000000  
+        25\%        0.000000     0.000000  
+        50\%        0.000000     0.000000  
+        75\%        0.000000     0.000000  
+        max    10393.970000  8985.710000  
 \end{Verbatim}
             
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}29}]:} \PY{o}{\PYZpc{}}\PY{k}{pwd} \PYZsh{} directory where we are
+{\color{incolor}In [{\color{incolor}6}]:} \PY{c+c1}{\PYZsh{} funkce sečte kolik řádů má délku větší 500 m}
+        \PY{k}{def} \PY{n+nf}{pocet\PYZus{}radu}\PY{p}{(}\PY{n}{radek}\PY{p}{)}\PY{p}{:}
+            \PY{k}{return} \PY{n+nb}{len}\PY{p}{(}\PY{n+nb}{filter}\PY{p}{(}\PY{k}{lambda} \PY{n}{x}\PY{p}{:} \PY{n}{x}\PY{o}{\PYZgt{}}\PY{l+m+mi}{500}\PY{p}{,} \PY{n+nb}{list}\PY{p}{(}\PY{n}{radek}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{:}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{} pro všech 16 dílků spočti součet linii v každém čtverečku}
+        \PY{n}{pocet\PYZus{}radu} \PY{o}{=} \PY{n}{radovost\PYZus{}toku}\PY{o}{.}\PY{n}{apply}\PY{p}{(}\PY{n}{pocet\PYZus{}radu}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+        \PY{n}{radovost\PYZus{}toku}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{pocet\PYZus{}radu}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]} \PY{o}{=} \PY{n}{pocet\PYZus{}radu}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{n}{radovost\PYZus{}toku}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}29}]:} u'C:\textbackslash{}\textbackslash{}Users\textbackslash{}\textbackslash{}fencl\textbackslash{}\textbackslash{}diplomka'
+{\color{outcolor}Out[{\color{outcolor}7}]:}     celkova\_delka      r0   r1   r2       r3       r4       r5       r6  \textbackslash{}
+        ID                                                                        
+        14       17394.68  762.97  0.0  0.0     0.00  8409.72  4785.93  3436.05   
+        25       18035.44    0.00  0.0  0.0     0.00  7915.01  8463.53  1656.90   
+        38       17475.16    0.00  0.0  0.0  4325.05  6930.02  4965.09  1254.99   
+        40       24002.05    0.00  0.0  0.0     0.00     0.00  8275.27  9726.37   
+        43        9391.67    0.00  0.0  0.0  3780.89  5610.78     0.00     0.00   
+        
+                 r7       r8       r9  r10  pocet\_radu  
+        ID                                              
+        14     0.00     0.00     0.00  0.0           3  
+        25     0.00     0.00     0.00  0.0           3  
+        38     0.00     0.00     0.00  0.0           4  
+        40  2938.44  2002.66  1059.31  0.0           5  
+        43     0.00     0.00     0.00  0.0           2  
 \end{Verbatim}
             
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}30}]:} \PY{o}{\PYZpc{}}\PY{k}{ls}
+{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{radovost\PYZus{}toku\PYZus{}predvyber} \PY{o}{=} \PY{n}{radovost\PYZus{}toku}\PY{p}{[}\PY{p}{(}\PY{n}{radovost\PYZus{}toku}\PY{o}{.}\PY{n}{r0} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{l+m+mi}{1000}\PY{p}{)}
+                                               \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{radovost\PYZus{}toku}\PY{o}{.}\PY{n}{pocet\PYZus{}radu} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{2}\PY{p}{)} \PY{c+c1}{\PYZsh{} minimum řádů}
+                                               \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{radovost\PYZus{}toku}\PY{o}{.}\PY{n}{pocet\PYZus{}radu} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{l+m+mi}{5}\PY{p}{)} \PY{c+c1}{\PYZsh{} max jsou 4, ale lze vypustit, ev. možné \PYZdq{}odnože\PYZdq{} dibavod}
+                                               \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{radovost\PYZus{}toku}\PY{o}{.}\PY{n}{celkova\PYZus{}delka} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{5000}\PY{p}{)} \PY{c+c1}{\PYZsh{} chci min hlavní tok v území}
+                                               \PY{p}{]}
+        \PY{n}{radovost\PYZus{}toku\PYZus{}predvyber}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}8}]:}        celkova\_delka           r0           r1            r2            r3  \textbackslash{}
+        count    4472.000000  4472.000000  4472.000000   4472.000000   4472.000000   
+        mean    15095.160454    12.852357    92.031829   1058.386541   2752.111981   
+        std      5587.454093    94.501304   616.168721   2200.531218   3327.008525   
+        min      5004.520000     0.000000     0.000000      0.000000      0.000000   
+        25\%     11237.955000     0.000000     0.000000      0.000000      0.000000   
+        50\%     14577.875000     0.000000     0.000000      0.000000   1275.995000   
+        75\%     18313.565000     0.000000     0.000000      0.000000   5030.870000   
+        max     45726.580000   993.610000  7924.080000  14739.340000  19692.960000   
+        
+                         r4            r5            r6            r7            r8  \textbackslash{}
+        count   4472.000000   4472.000000   4472.000000   4472.000000   4472.000000   
+        mean    4057.308099   3426.581820   2094.445237   1070.164595    434.860763   
+        std     3547.633863   3405.904722   2810.576940   2199.394585   1328.327035   
+        min        0.000000      0.000000      0.000000      0.000000      0.000000   
+        25\%        0.000000      0.000000      0.000000      0.000000      0.000000   
+        50\%     3942.870000   2580.380000    786.460000      0.000000      0.000000   
+        75\%     6440.515000   5549.307500   3524.267500    851.612500      0.000000   
+        max    19646.560000  18356.480000  16117.320000  14667.370000  10971.760000   
+        
+                        r9          r10   pocet\_radu  
+        count  4472.000000  4472.000000  4472.000000  
+        mean     88.269273     8.148115     3.345707  
+        std     489.219499    96.438686     0.844620  
+        min       0.000000     0.000000     2.000000  
+        25\%       0.000000     0.000000     3.000000  
+        50\%       0.000000     0.000000     3.000000  
+        75\%       0.000000     0.000000     4.000000  
+        max    8325.100000  2212.720000     5.000000  
+\end{Verbatim}
+            
     \begin{Verbatim}[commandchars=\\\{\}]
- Volume in drive C is Windows
- Volume Serial Number is 0CCB-366E
-
- Directory of C:\textbackslash{}Users\textbackslash{}fencl\textbackslash{}diplomka
-
-03.05.2018  10:43    <DIR>          .
-03.05.2018  10:43    <DIR>          ..
-03.05.2018  10:31    <DIR>          .ipynb\_checkpoints
-25.04.2018  13:28               102 README.md
-03.05.2018  10:43             7˙719 Testing\_Jupyter.ipynb
-               2 File(s)          7˙821 bytes
-               3 Dir(s)  74˙983˙038˙976 bytes free
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}33}]:} \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline \PYZsh{} to execute matplot lib inside jupyter notebook
+{\color{incolor}In [{\color{incolor}21}]:} \PY{c+c1}{\PYZsh{} funkce vrátí 1=True pokud ID splňuje podmínku}
+         \PY{k}{def} \PY{n+nf}{splnuje} \PY{p}{(}\PY{n}{radek}\PY{p}{)}\PY{p}{:}
+             \PY{k}{return} \PY{l+m+mi}{1}
+             
+         \PY{n}{radovost\PYZus{}toku\PYZus{}true} \PY{o}{=} \PY{n}{radovost\PYZus{}toku\PYZus{}predvyber}\PY{o}{.}\PY{n}{apply}\PY{p}{(}\PY{n}{splnuje}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{to\PYZus{}frame}\PY{p}{(}\PY{p}{)}
+         \PY{n}{radovost\PYZus{}toku\PYZus{}true}\PY{o}{.}\PY{n}{columns} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{radovost\PYZus{}ANO}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{radovost\PYZus{}toku\PYZus{}true}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}21}]:}     radovost\_ANO
+         ID              
+         14             1
+         25             1
+         38             1
+         40             1
+         43             1
+\end{Verbatim}
+            
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}37}]:} \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
-         \PY{l+s+sd}{Simple demo of a scatter plot}
-         \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
-         \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
-         \PY{k+kn}{import} \PY{n+nn}{matplotlib.pyplot} \PY{k+kn}{as} \PY{n+nn}{plt}
+{\color{incolor}In [{\color{incolor}10}]:} \PY{n}{radovost\PYZus{}export} \PY{o}{=} \PY{n}{radovost\PYZus{}toku\PYZus{}predvyber}\PY{p}{[}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{celkova\PYZus{}delka}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{pocet\PYZus{}radu}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{radovost\PYZus{}toku\PYZus{}true}\PY{p}{)}
+         \PY{n}{radovost\PYZus{}export}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}10}]:}        celkova\_delka   pocet\_radu  radovost\_ANO
+         count    4472.000000  4472.000000        4472.0
+         mean    15095.160454     3.345707           1.0
+         std      5587.454093     0.844620           0.0
+         min      5004.520000     2.000000           1.0
+         25\%     11237.955000     3.000000           1.0
+         50\%     14577.875000     3.000000           1.0
+         75\%     18313.565000     4.000000           1.0
+         max     45726.580000     5.000000           1.0
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{c+c1}{\PYZsh{} ulozim dataframe jako novy csv soubor}
+         \PY{n}{radovost\PYZus{}export}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{C:}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{fenclova}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{diplomka}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{analyza}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{vysledky}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{analyza\PYZus{}0\PYZus{}radovost\PYZus{}toku4472.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \subsubsection{4472 variant \textgreater{} výběr toku, který dělí území
+na 1/2 -
+1/4}\label{variant-vuxfdbux11br-toku-kteruxfd-dux11bluxed-uxfazemuxed-na-12---14}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}35}]:} \PY{n}{tok} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{C:}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{fenclova}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{diplomka}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{analyza}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{vysledky}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{0\PYZus{}predvyber\PYZus{}vodni\PYZus{}tok.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{delimiter} \PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{;}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{set\PYZus{}index}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ID}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{tok}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}35}]:}     find\_path\_problem  end\_start\_kombinace  nejlepsi\_podil\_ploch  \textbackslash{}
+         ID                                                                 
+         14                  0                   14                172.06   
+         25                  0                   10                 25.00   
+         38                  0                   40                 12.40   
+         40                  0                  108                  8.44   
+         43                  6                   16                  6.60   
          
-         \PY{n}{N} \PY{o}{=} \PY{l+m+mi}{50}
-         \PY{n}{x} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{rand}\PY{p}{(}\PY{n}{N}\PY{p}{)}
-         \PY{n}{y} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{rand}\PY{p}{(}\PY{n}{N}\PY{p}{)}
-         \PY{n}{colors} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{rand}\PY{p}{(}\PY{n}{N}\PY{p}{)}
-         \PY{n}{area} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{pi} \PY{o}{*} \PY{p}{(}\PY{l+m+mi}{15} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{rand}\PY{p}{(}\PY{n}{N}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{c+c1}{\PYZsh{} 0 to 15 point radiuses}
-         
-         \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{s}\PY{o}{=}\PY{n}{area}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{n}{colors}\PY{p}{,} \PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{p}{)}
-         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+             pocet\_pruseciku  
+         ID                   
+         14                8  
+         25                8  
+         38               10  
+         40               10  
+         43               10  
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}36}]:} \PY{n}{tok}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}36}]:}        find\_path\_problem  end\_start\_kombinace  nejlepsi\_podil\_ploch  \textbackslash{}
+         count        4571.000000          4571.000000          4.571000e+03   
+         mean            2.909867            28.231897          1.004044e+03   
+         std             7.473496            28.285324          2.340527e+04   
+         min             0.000000             0.000000          0.000000e+00   
+         25\%             0.000000            10.000000          1.440000e+00   
+         50\%             0.000000            20.000000          3.160000e+00   
+         75\%             0.000000            36.000000          1.151000e+01   
+         max           132.000000           418.000000          1.444386e+06   
+         
+                pocet\_pruseciku  
+         count      4571.000000  
+         mean         13.456137  
+         std           6.607534  
+         min           0.000000  
+         25\%           9.000000  
+         50\%          14.000000  
+         75\%          18.000000  
+         max          39.000000  
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}47}]:} \PY{n}{tok} \PY{o}{=} \PY{n}{tok}\PY{p}{[}\PY{o}{\PYZti{}}\PY{n}{tok}\PY{o}{.}\PY{n}{index}\PY{o}{.}\PY{n}{duplicated}\PY{p}{(}\PY{n}{keep}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{first}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{]}
+         \PY{n}{tok}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{}tok[tok.index.duplicated()]}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}47}]:}        find\_path\_problem  end\_start\_kombinace  nejlepsi\_podil\_ploch  \textbackslash{}
+         count        4474.000000          4474.000000          4.474000e+03   
+         mean            2.902772            28.176129          9.275435e+02   
+         std             7.464241            28.265735          2.321060e+04   
+         min             0.000000             0.000000          0.000000e+00   
+         25\%             0.000000            10.000000          1.440000e+00   
+         50\%             0.000000            20.000000          3.175000e+00   
+         75\%             0.000000            36.000000          1.166500e+01   
+         max           132.000000           418.000000          1.444386e+06   
+         
+                pocet\_pruseciku  
+         count      4474.000000  
+         mean         13.453733  
+         std           6.608717  
+         min           0.000000  
+         25\%           9.000000  
+         50\%          14.000000  
+         75\%          18.000000  
+         max          39.000000  
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}67}]:} \PY{c+c1}{\PYZsh{} histogram podílu ploch}
+         
+         \PY{n}{d} \PY{o}{=} \PY{n}{tok}\PY{o}{.}\PY{n}{nejlepsi\PYZus{}podil\PYZus{}ploch}\PY{p}{[}\PY{p}{(}\PY{n}{tok}\PY{o}{.}\PY{n}{nejlepsi\PYZus{}podil\PYZus{}ploch} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{1}\PY{p}{)} \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{tok}\PY{o}{.}\PY{n}{nejlepsi\PYZus{}podil\PYZus{}ploch} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{]}
+         \PY{n}{dx} \PY{o}{=} \PY{n}{d}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{n}{bins}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{)}
+         \PY{n}{dx}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Podíl ploch}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{dx}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Počet variant}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}67}]:} Text(0,0.5,u'Po\textbackslash{}u010det variant')
+\end{Verbatim}
+            
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_8_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_14_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}41}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{HTML} \PYZsh{} entire cell will be rendered as HTML
-         \PYZlt{}iframe width=\PYZdq{}560\PYZdq{} height=\PYZdq{}315\PYZdq{} src=\PYZdq{}https://www.youtube.com/embed/tgbNymZ7vqY\PYZdq{} frameborder=\PYZdq{}0\PYZdq{} allowfullscreen\PYZgt{}\PYZlt{}/iframe\PYZgt{}
-\end{Verbatim}
-
-
-    
-    \begin{verbatim}
-<IPython.core.display.HTML object>
-    \end{verbatim}
-
-    
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}43}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{timeit}
-         square\PYZus{}events = [n*n for n in range(1000)]
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-10000 loops, best of 3: 107 µs per loop
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}49}]:} \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k+kn}{as} \PY{n+nn}{pd}
-         \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+{\color{incolor}In [{\color{incolor}85}]:} \PY{n}{a} \PY{o}{=} \PY{n}{tok}\PY{p}{[}\PY{p}{(}\PY{n}{tok}\PY{o}{.}\PY{n}{nejlepsi\PYZus{}podil\PYZus{}ploch} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{l+m+mi}{40}\PY{p}{)}\PY{p}{]}
+         \PY{n}{ax}\PY{o}{=} \PY{n}{a}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{nejlepsi\PYZus{}podil\PYZus{}ploch}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pocet\PYZus{}pruseciku}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} 
+                                                                         \PY{n}{kind}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{scatter}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} 
+                                                                         \PY{n}{ylim}\PY{o}{=}\PY{p}{\PYZob{}}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{40}\PY{p}{\PYZcb{}}\PY{p}{,} \PY{n}{xlim}\PY{o}{=}\PY{p}{\PYZob{}}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{\PYZcb{}}\PY{p}{,} 
+                                                                         \PY{n}{grid}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}
          
-         \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{randn}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
-         \PY{n}{df} \PY{c+c1}{\PYZsh{} all rows}
-         \PY{n}{df}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)} \PY{c+c1}{\PYZsh{} only first few rows}
+         \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Podíl ploch při rozdělení}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Počet průsečíků vodního toku s mřížkou}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \end{Verbatim}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}49}]:}           0         1         2         3         4
-         0  0.612003 -1.312413 -0.447809 -0.801601 -0.164984
-         1  0.331263 -0.319261 -0.318062  1.144286  0.194920
-         2 -0.246921  0.069172  2.084746 -1.099412 -0.024998
-         3  0.565543 -0.931078  0.861995 -0.313891  0.171635
-         4  1.043915  0.703348  1.137306 -0.690889  0.841528
+{\color{outcolor}Out[{\color{outcolor}85}]:} Text(0,0.5,u'Po\textbackslash{}u010det pr\textbackslash{}u016fse\textbackslash{}u010d\textbackslash{}xedk\textbackslash{}u016f vodn\textbackslash{}xedho toku s m\textbackslash{}u0159\textbackslash{}xed\textbackslash{}u017ekou')
 \end{Verbatim}
             
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_15_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}137}]:} \PY{n}{vyber\PYZus{}tok} \PY{o}{=} \PY{n}{tok}\PY{p}{[}\PY{p}{(}\PY{n}{tok}\PY{o}{.}\PY{n}{nejlepsi\PYZus{}podil\PYZus{}ploch} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{1}\PY{p}{)} 
+              \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{tok}\PY{o}{.}\PY{n}{nejlepsi\PYZus{}podil\PYZus{}ploch} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{l+m+mi}{3}\PY{p}{)}
+              \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{tok}\PY{o}{.}\PY{n}{pocet\PYZus{}pruseciku} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{10}\PY{p}{)} \PY{c+c1}{\PYZsh{} pojistka}
+             \PY{p}{]}
+          \PY{n}{vyber\PYZus{}tok}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}137}]:}        find\_path\_problem  end\_start\_kombinace  nejlepsi\_podil\_ploch  \textbackslash{}
+          count        1991.000000          1991.000000           1991.000000   
+          mean            2.660974            31.392767              1.646469   
+          std             7.287084            30.049146              0.557799   
+          min             0.000000             1.000000              1.000000   
+          25\%             0.000000            12.000000              1.160000   
+          50\%             0.000000            24.000000              1.480000   
+          75\%             0.000000            40.000000              2.040000   
+          max            76.000000           238.000000              3.000000   
+          
+                 pocet\_pruseciku  
+          count      1991.000000  
+          mean         18.470618  
+          std           4.006780  
+          min          12.000000  
+          25\%          15.000000  
+          50\%          18.000000  
+          75\%          21.000000  
+          max          39.000000  
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}149}]:} \PY{c+c1}{\PYZsh{} funkce vrátí 1=True pokud ID splňuje podmínku}
+          \PY{k}{def} \PY{n+nf}{splnuje} \PY{p}{(}\PY{n}{radek}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{l+m+mi}{1}
+              
+          \PY{n}{vyber\PYZus{}tok\PYZus{}true} \PY{o}{=} \PY{n}{vyber\PYZus{}tok}\PY{o}{.}\PY{n}{apply}\PY{p}{(}\PY{n}{splnuje}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{to\PYZus{}frame}\PY{p}{(}\PY{p}{)}
+          \PY{n}{vyber\PYZus{}tok\PYZus{}true}\PY{o}{.}\PY{n}{columns} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{hlavni\PYZus{}tok}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+          \PY{n}{vyber\PYZus{}tok\PYZus{}export} \PY{o}{=} \PY{n}{vyber\PYZus{}tok\PYZus{}true}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{tok}\PY{p}{[}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{nejlepsi\PYZus{}podil\PYZus{}ploch}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{pocet\PYZus{}pruseciku}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+          \PY{n}{vyber\PYZus{}tok\PYZus{}export}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}149}]:}      hlavni\_tok  nejlepsi\_podil\_ploch  pocet\_pruseciku
+          ID                                                    
+          46            1                  2.91               19
+          58            1                  1.06               16
+          92            1                  1.13               19
+          96            1                  1.33               16
+          104           1                  1.39               17
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}146}]:} \PY{c+c1}{\PYZsh{} ulozim dataframe jako novy csv soubor}
+          \PY{n}{vyber\PYZus{}tok\PYZus{}export}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{C:}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{fenclova}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{diplomka}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{analyza}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{vysledky}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{analyza\PYZus{}0\PYZus{}predvyber\PYZus{}vodni\PYZus{}tok1991.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \subsection{vybráno 1991 variant pro další
+hodnocení}\label{vybruxe1no-1991-variant-pro-dalux161uxed-hodnocenuxed}
+
 
     % Add a bibliography block to the postdoc
     
